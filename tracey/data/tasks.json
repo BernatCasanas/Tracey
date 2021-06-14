@@ -1,0 +1,22 @@
+{
+    "tareas" : [
+        {
+            "titulo": "Clase de yoga",
+            "hora_inicio": "12:00",
+            "hora_fin": "13:00",
+            "fecha": "27/06/2021"
+        },
+        {
+            "titulo": "Curso Flutter",
+            "hora_inicio": "17:00",
+            "hora_fin": "19:00",
+            "fecha": "14/06/2021"
+        },
+        {
+            "titulo": "Follarme al Berni",
+            "hora_inicio": "21:00",
+            "hora_fin": "23:00",
+            "fecha": "14/06/2021"
+        }
+    ]
+}
