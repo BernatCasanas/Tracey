@@ -52,11 +52,18 @@ class HomePage extends StatelessWidget {
 
   List<Widget> _crearListaTareas(List<dynamic> data, BuildContext context) {
     final List<Widget> tareas = [];
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+
+    String fechaFormateada = formatDate(today);
+
     data.forEach((tarea) {
-      tareas.add(_cardTask(
-          titulo: tarea['titulo'],
-          horaInicio: tarea['hora_inicio'],
-          horaFinal: tarea['hora_fin']));
+      if (fechaFormateada == tarea['fecha']) {
+        tareas.add(_cardTask(
+            titulo: tarea['titulo'],
+            horaInicio: tarea['hora_inicio'],
+            horaFinal: tarea['hora_fin']));
+      }
     });
     return tareas;
   }
@@ -71,7 +78,20 @@ class HomePage extends StatelessWidget {
           ),
           title: Text("$titulo"),
           subtitle: Text("$horaInicio - $horaFinal"),
-          trailing: Icon(Icons.more_vert)),
+          trailing: IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () {},
+          )),
     );
+  }
+
+  String formatDate(DateTime date) {
+    String fullDateString = date.toString();
+    String dateString = fullDateString.split(" ")[0];
+    List<String> arr = dateString.split("-");
+    String day = arr[2];
+    String month = arr[1];
+    String year = arr[0];
+    return "$day/$month/$year";
   }
 }
